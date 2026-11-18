@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Environment secrets
+.env
+
+# Local SQLite data (initialize with: python init_db.py)
+database/*.db
+database/*.sqlite
+database/*.sqlite3
+
+# User uploads
+uploads/*
