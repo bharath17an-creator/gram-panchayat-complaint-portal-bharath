@@ -1,3 +1,4 @@
+
 import sqlite3
 from pathlib import Path
 
@@ -5,8 +6,9 @@ from pathlib import Path
 # Get the main project folder
 BASE_DIR = Path(__file__).resolve().parent
 
-# Location of the SQLite database
-DATABASE_PATH = BASE_DIR / "database" / "complaints.db"
+# Set the database folder and file location
+DATABASE_DIR = BASE_DIR / "database"
+DATABASE_PATH = DATABASE_DIR / "complaints.db"
 
 
 def get_db_connection():
@@ -14,12 +16,16 @@ def get_db_connection():
     Create and return a connection to the SQLite database.
     """
 
-    connection = sqlite3.connect(DATABASE_PATH)
+    # Create the database folder if it does not exist
+    DATABASE_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Allows us to access database columns by name
+    # Connect to the database
+    connection = sqlite3.connect(str(DATABASE_PATH))
+
+    # Access database columns using their names
     connection.row_factory = sqlite3.Row
 
-    # Enforce foreign-key relationships
+    # Enable foreign key relationships
     connection.execute("PRAGMA foreign_keys = ON")
 
     return connection
