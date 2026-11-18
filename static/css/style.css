@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+
+/* Hero Section */
+
+.hero-section {
+    background: linear-gradient(135deg, #198754, #146c43);
+    color: white;
+    padding: 100px 20px;
+}
+
+
+/* Step Numbers */
+
+.step-number {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: #198754;
+    color: white;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/* Category Cards */
+
+.category-card {
+    background-color: white;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    border: 1px solid #dee2e6;
+
+    font-weight: 600;
+
+    transition: transform 0.2s ease;
+}
+
+
+.category-card:hover {
+    transform: translateY(-3px);
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .hero-section {
+        padding: 70px 20px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+
+}
+
+/* Compact language selector shared by every portal page */
+.language-switcher {
+    position: fixed;
+    bottom: 14px;
+    right: 14px;
+    z-index: 1100;
+    width: 132px;
+}
+.language-switcher .form-select {
+    border: 1px solid rgba(255,255,255,.75);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.12);
+    background-color: #fff;
+    color: #212529;
+    font-weight: 600;
+}
+@media (max-width: 575px) {
+    .language-switcher { bottom: 8px; right: 8px; width: 112px; }
+}

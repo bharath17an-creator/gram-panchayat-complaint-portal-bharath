@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="{{ session.get('language', 'en') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ _('Manage Complaint - Gram Panchayat Portal') }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    {% include "_language_switcher.html" %}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>{{ _('Manage Complaint:') }} {{ complaint.complaint_number }}</h2>
+        <a href="/admin/complaints" class="btn btn-secondary">{{ _('Back to Complaints') }}</a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">{{ _('Citizen Report Details') }}</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>{{ _('Category:') }}</strong> {{ _(complaint.category) }}</p>
+                    <p><strong>{{ _('Location:') }}</strong> {{ complaint.location }}</p>
+                    <p><strong>{{ _('Status:') }}</strong> {{ _(complaint.status) }}</p>
+                    <hr>
+                    <p><strong>{{ _('Description:') }}</strong></p>
+                    <p class="bg-light p-3 border rounded">{{ complaint.description }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0">{{ _('Update Progress') }}</h5>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="mb-3">
+                            <label class="form-label">{{ _('Change Status To:') }}</label>
+                            <select class="form-select" name="status">
+                                <option value="Submitted">{{ _('Submitted') }}</option>
+                                <option value="Under Review">{{ _('Under Review') }}</option>
+                                <option value="Assigned">{{ _('Assigned') }}</option>
+                                <option value="In Progress">{{ _('In Progress') }}</option>
+                                <option value="Resolved">{{ _('Resolved') }}</option>
+                                <option value="Closed">{{ _('Closed') }}</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">{{ _('Official Remark (Visible to Citizen)') }}</label>
+                            <textarea class="form-control" name="admin_remark" rows="4" placeholder="{{ _('Type your reply to the citizen here...') }}"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success w-100">{{ _('Save Changes') }}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

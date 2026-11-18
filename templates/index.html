@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="{{ session.get('language', 'en') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ _('Digital Gram Panchayat Complaint Portal') }}</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Our CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+    {% include "_language_switcher.html" %}
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="/">
+                {{ _('Gram Panchayat Portal') }}
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            {{ _('Home') }}
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">
+                            {{ _('About') }}
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/track">
+                            {{ _('Track Complaint') }}
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">
+                            {{ _('Login') }}
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">
+                            {{ _('Register') }}
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+
+            <span class="badge bg-light text-success mb-3">
+                {{ _('Digital Public Service Prototype') }}
+            </span>
+
+            <h1 class="display-4 fw-bold">
+                {{ _('Report. Track. Resolve.') }}
+            </h1>
+
+            <p class="lead mt-3">
+                {{ _('Report local civic problems digitally and track the progress of your complaint without repeatedly visiting the Panchayat office.') }}
+            </p>
+
+            <div class="mt-4">
+
+                <a href="/submit-complaint" class="btn btn-light btn-lg me-2">
+                    {{ _('Submit a Complaint') }}
+                </a>
+
+                <a href="/track" class="btn btn-outline-light btn-lg">
+                    {{ _('Track Complaint') }}
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- How It Works -->
+    <section class="container py-5" id="how-it-works">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">
+                {{ _('How It Works') }}
+            </h2>
+
+            <p class="text-muted">
+                {{ _('A simple way to report and follow civic issues.') }}
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="card h-100 shadow-sm border-0">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="step-number">
+                            1
+                        </div>
+
+                        <h4 class="mt-3">
+                            {{ _('Register') }}
+                        </h4>
+
+                        <p class="text-muted">
+                            {{ _('Create your citizen account to access the complaint portal.') }}
+                        </p>
+
+                        <a href="/register" class="btn btn-success">
+                            {{ _('Register Now') }}
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card h-100 shadow-sm border-0">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="step-number">
+                            2
+                        </div>
+
+                        <h4 class="mt-3">
+                            {{ _('Submit Complaint') }}
+                        </h4>
+
+                        <p class="text-muted">
+                            {{ _('Report problems such as roads, street lights, water and sanitation.') }}
+                        </p>
+
+                        <a href="/submit-complaint" class="btn btn-success">
+                            {{ _('Submit Complaint') }}
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card h-100 shadow-sm border-0">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="step-number">
+                            3
+                        </div>
+
+                        <h4 class="mt-3">
+                            {{ _('Track Status') }}
+                        </h4>
+
+                        <p class="text-muted">
+                            {{ _('Follow the progress of your complaint from submission to resolution.') }}
+                        </p>
+
+                        <a href="/track" class="btn btn-success">
+                            {{ _('Track Complaint') }}
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Complaint Categories -->
+    <section class="bg-light py-5">
+
+        <div class="container">
+
+            <div class="text-center mb-4">
+
+                <h2 class="fw-bold">
+                    {{ _('Complaint Categories') }}
+                </h2>
+
+            </div>
+
+            <div class="row g-3 text-center">
+
+                <div class="col-6 col-md-3">
+                    <div class="category-card">
+                        {{ _('Roads') }}
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="category-card">
+                        {{ _('Street Lights') }}
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="category-card">
+                        {{ _('Drinking Water') }}
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="category-card">
+                        {{ _('Drainage') }}
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="category-card">
+                        {{ _('Waste Management') }}
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="category-card">
+                        {{ _('Sanitation') }}
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="category-card">
+                        {{ _('Public Health') }}
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="category-card">
+                        {{ _('Other') }}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Disclaimer -->
+    <section class="container py-4">
+
+        <div class="alert alert-warning">
+
+            <strong>{{ _('Prototype Notice:') }}</strong>
+
+            {{ _('This is an educational/project prototype and is not an official government website. It should not be represented as an official Gram Panchayat service unless it is formally authorized and deployed by the relevant authority.') }}
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+
+        <div class="container text-center">
+
+            <p class="mb-1">
+                {{ _('Digital Gram Panchayat Public Complaint Portal') }}
+            </p>
+
+            <small class="text-secondary">
+                {{ _('Prototype project for digital civic complaint management.') }}
+            </small>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- Our JavaScript -->
+    <script
+        src="{{ url_for('static', filename='js/main.js') }}">
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<div class="language-switcher" aria-label="Language selection" style="position:fixed;bottom:14px;right:14px;z-index:1100;width:132px;background:#fff;padding:3px;border-radius:9px;box-shadow:0 2px 10px rgba(0,0,0,.15);">
+    <form action="{{ url_for('set_language') }}" method="POST">
+        <label for="portal-language" class="visually-hidden">{{ _('Select Language') }}</label>
+        <select id="portal-language" name="language" class="form-select form-select-sm"
+                aria-label="{{ _('Select Language') }}" onchange="this.form.submit()">
+            <option value="en" {% if current_language == 'en' %}selected{% endif %}>English</option>
+            <option value="kn" {% if current_language == 'kn' %}selected{% endif %}>ಕನ್ನಡ</option>
+            <option value="hi" {% if current_language == 'hi' %}selected{% endif %}>हिन्दी</option>
+        </select>
+        <input type="hidden" name="next" value="{{ request.path }}">
+    </form>
+</div>

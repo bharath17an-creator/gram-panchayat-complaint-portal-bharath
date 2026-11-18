@@ -1,0 +1,1 @@
+console.log("Digital Gram Panchayat Complaint Portal loaded successfully.");
